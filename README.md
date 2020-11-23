@@ -75,6 +75,12 @@ class Heap {
     heapify(0);
   }
   
+  public void buildHeap(){
+    for(int i=parent(size()-1);i>=0;i--){
+      heapify(i);
+    }
+  }
+  
   private void swap(int index1, int index2){
     int temp = al.get(index1);
     al.set(index1,al.get(index2));
