@@ -9,17 +9,11 @@ class Heap {
   
   public int left(int i){
     int l = 2*i+1;
-    if(l>size()){
-      return -1;
-    }
     return l;
   }
   
   public int right(int i){
     int r = 2*i+2;
-    if(r>size()){
-      return -1;
-    }
     return r;
   }
   
@@ -31,6 +25,22 @@ class Heap {
     al.add(val);
     for(int i=size()-1;i!=0 && al.get(parent(i))>al.get(i);i=parent(i)){
       swap(i,parent(i));
+    }
+  }
+  
+  public void heapify(int i){
+    int l = left(i);
+    int r = right(i);
+    int smallest = i;
+    if(l<size() && al.get(l)<al.get(i)){
+      smallest = l;
+    }
+    if(r<size() && al.get(r)<al.get(smallest)){
+      smallest = r;
+    }
+    if(smallest!=i){
+      swap(smallest,i);
+      heapify(smallest);
     }
   }
   
