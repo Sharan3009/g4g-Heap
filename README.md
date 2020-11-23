@@ -1,6 +1,6 @@
 # Heap hands-on
 ```
-Heap {
+class Heap {
   ArrayList<Integer> al = new ArrayList<>();
   
   public int size(){
