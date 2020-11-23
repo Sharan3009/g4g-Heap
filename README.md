@@ -1,5 +1,6 @@
 # Heap hands-on
 ```
+import java.util.*;
 class Heap {
   ArrayList<Integer> al = new ArrayList<>();
   
@@ -42,6 +43,19 @@ class Heap {
       swap(smallest,i);
       heapify(smallest);
     }
+  }
+  
+  public int extractMin(){
+    if(size()==0){
+      return Integer.MAX_VALUE;
+    }
+    if(size()==1){
+      return al.remove(0);
+    }
+    swap(0,size()-1);
+    int extractedMin = al.remove(size()-1);
+    heapify(0);
+    return extractedMin;
   }
   
   private void swap(int index1, int index2){
