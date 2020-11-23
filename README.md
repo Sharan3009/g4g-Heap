@@ -58,6 +58,17 @@ class Heap {
     return extractedMin;
   }
   
+  public void decreaseKey(int i, int v){
+    if(i>=size()){
+      return;
+    }
+    al.set(i,v);
+    while(i!=0 && al.get(parent(i)>al.get(i))){
+      swap(i,parent(i));
+      i = parent(i);
+    }
+  }
+  
   private void swap(int index1, int index2){
     int temp = al.get(index1);
     al.set(index1,al.get(index2));
