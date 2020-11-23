@@ -69,6 +69,12 @@ class Heap {
     }
   }
   
+  public void deleteKey(int i){
+    if(i>=size()) return;
+    decreaseKey(i,Integer.MIN_VALUE);
+    heapify(0);
+  }
+  
   private void swap(int index1, int index2){
     int temp = al.get(index1);
     al.set(index1,al.get(index2));
