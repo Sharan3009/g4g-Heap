@@ -26,5 +26,18 @@ class Heap {
   public int parent(int i){
     return (i-1)/2;
   }
+  
+  public void insert(int val){
+    al.add(val);
+    for(int i=size()-1;i!=0 && al.get(parent(i))>al.get(i);i=parent(i)){
+      swap(i,parent(i));
+    }
+  }
+  
+  private void swap(int index1, int index2){
+    int temp = al.get(index1);
+    al.set(index1,al.get(index2));
+    al.set(index2,temp);
+  }
 }
 ```
