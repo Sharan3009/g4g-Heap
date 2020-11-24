@@ -72,7 +72,7 @@ class Heap {
   public void deleteKey(int i){
     if(i>=size()) return;
     decreaseKey(i,Integer.MIN_VALUE);
-    heapify(0);
+    extractMin();
   }
   
   public void buildHeap(){
